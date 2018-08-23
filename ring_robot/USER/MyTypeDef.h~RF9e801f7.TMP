@@ -1,0 +1,55 @@
+/*************************************************************
+*  Open source but not allowed to modify(All rights reserved)
+*File name      : MyTypeDef.H
+*Auther         : 张沁
+*Version        : v1.0
+*Date           : 2017-10-31
+*Description    : 通用数据类型定义区(如全局变量等)
+*Function List  : 
+*************************************************************/
+#ifndef _MYTYPEDEF_H_
+#define _MYTYPEDEF_H_
+
+#include "includes.h"
+
+/***全局变量定义区***/
+#ifdef MY_CPP_GLOBALS
+#define EXTERN
+#else
+#define EXTERN extern
+#endif
+
+/*
+speedSwitchFlag: 速度显示、修改标志位
+Bit7: 1 允许进行修改操作  0 禁止进行修改
+Bit2: 1 将显示和修改位置定位到"rotation"(自转速度)
+Bit1: 1 将显示和修改位置定位到"attack"  (攻击速度)
+Bit0: 1 将显示和修改位置定位到"patrol"  (巡航速度)
+*/
+EXTERN INT8U speedSwitchFlag;
+
+
+/**************擂台机器人运行速度 相关参数定义区*****************/
+typedef struct SPEED_SELECT
+{
+	INT16U patrol;             //巡逻速度
+	INT16U attack;             //攻击速度
+	INT16U rotation;     	   //自转速度
+} _SPEED_SELECT;
+EXTERN _SPEED_SELECT speedSelect, *p_speedSelect; 
+/**************************************************************/
+
+
+/******************接收数据定义区(From K60)*********************/
+typedef struct RECEIVE_DATA
+{
+	INT32U photoelectricSensor;//光电对管数据
+	float  anglex;             //x轴角度
+	float  angley;             //y轴角度
+	float  anglez, setAnglez;  //z轴角度、下一时刻机器人应该运行到的z轴角度
+} _RECEIVE_DATA;
+EXTERN _RECEIVE_DATA receiveData, *p_receiveData;
+/**************************************************************/
+
+
+#endif//_MYTYPEDEF_H_

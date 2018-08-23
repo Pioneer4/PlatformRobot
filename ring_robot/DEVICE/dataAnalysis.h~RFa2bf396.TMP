@@ -1,0 +1,19 @@
+/*************************************************************
+*  Open source but not allowed to modify(All rights reserved)
+*File name      : dataAnalysis.h
+*Auther         : 张沁
+*Vertion        : v1.0
+*Date           : 2017-11-02
+*Description    : 该文件包含dataAnalysis.c中所有的函数原型
+*Function List  : 
+*************************************************************/
+#ifndef __DATAANALYSIS_H
+#define __DATAANALYSIS_H
+
+#include "myinclude.h"
+
+u8 ElecSensorRead(u8 sensorNum);
+void SensorShowCircle(u8 sensorNum);
+void sensorAllClrCircle(void);
+
+#endif
